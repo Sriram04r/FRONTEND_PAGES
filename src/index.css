@@ -1,4 +1,6 @@
 @import './dashboard.css';
+@import './ctpo.css';
+@import './hod.css';
 :root {
   --primary: #6b3fc5;
   --primary-hover: #5630a6;

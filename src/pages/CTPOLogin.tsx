@@ -1,21 +1,22 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Users, User, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { User, Lock, Eye, EyeOff, ArrowRight, Briefcase } from 'lucide-react';
 
 const CTPOLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="auth-card">
       <div className="card-header">
         <div className="card-icon">
-          <Users size={32} />
+          <Briefcase size={32} />
         </div>
-        <h3>CTPO Login</h3>
-        <p>Login to your account</p>
+        <h3>CTPO / Faculty Login</h3>
+        <p>Login to manage permissions</p>
       </div>
 
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => { e.preventDefault(); navigate('/ctpo/dashboard'); }}>
         <div className="form-group">
           <User className="input-icon" />
           <input type="text" className="form-input" placeholder="Faculty ID" />

@@ -1,21 +1,22 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Building, User, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Building2, User, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
 
 const HODLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="auth-card">
       <div className="card-header">
         <div className="card-icon">
-          <Building size={32} />
+          <Building2 size={32} />
         </div>
         <h3>HOD Login</h3>
-        <p>Login to your account</p>
+        <p>Login to your department portal</p>
       </div>
 
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => { e.preventDefault(); navigate('/hod/dashboard'); }}>
         <div className="form-group">
           <User className="input-icon" />
           <input type="text" className="form-input" placeholder="Faculty ID" />
