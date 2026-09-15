@@ -1,5 +1,6 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { Building2, Home, User, FileText, List, Bell, Clock, LogOut, Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const DashboardLayout = () => {
   const navigate = useNavigate();
@@ -8,73 +9,82 @@ const DashboardLayout = () => {
     navigate('/login/student');
   };
 
+  const navItemClass = ({ isActive }: { isActive: boolean }) => 
+    `flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+      isActive ? 'bg-primary text-primary-foreground font-medium' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+    }`;
+
   return (
-    <div className="dashboard-container">
+    <div className="flex h-screen bg-slate-50 overflow-hidden font-sans">
       {/* Sidebar */}
-      <aside className="sidebar">
-        <div className="sidebar-header">
-          <Building2 className="sidebar-logo-icon" />
-          <div className="sidebar-logo-text">
-            <h2>CampusFlow</h2>
-            <p>Permissions Made Simple</p>
+      <aside className="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex">
+        <div className="p-6 flex items-center gap-3 border-b border-slate-100">
+          <div className="bg-primary/10 p-2 rounded-lg text-primary">
+            <Building2 className="w-6 h-6" />
+          </div>
+          <div>
+            <h2 className="font-bold text-xl text-slate-900">CampusFlow</h2>
+            <p className="text-xs text-slate-500">Permissions Made Simple</p>
           </div>
         </div>
 
-        <nav className="sidebar-nav">
-          <NavLink to="/student/dashboard" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <Home className="nav-icon" /> Dashboard
+        <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+          <NavLink to="/student/dashboard" className={navItemClass}>
+            <Home className="w-5 h-5" /> Dashboard
           </NavLink>
-          <NavLink to="/student/profile" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <User className="nav-icon" /> My Profile
+          <NavLink to="/student/profile" className={navItemClass}>
+            <User className="w-5 h-5" /> My Profile
           </NavLink>
-          <NavLink to="/student/permission-request" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <FileText className="nav-icon" /> Permission Request
+          <NavLink to="/student/permission-request" className={navItemClass}>
+            <FileText className="w-5 h-5" /> Permission Request
           </NavLink>
-          <NavLink to="/student/my-requests" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <List className="nav-icon" /> My Requests
+          <NavLink to="/student/my-requests" className={navItemClass}>
+            <List className="w-5 h-5" /> My Requests
           </NavLink>
-          <NavLink to="/student/my-documents" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <Download className="nav-icon" /> My Documents
+          <NavLink to="/student/my-documents" className={navItemClass}>
+            <Download className="w-5 h-5" /> My Documents
           </NavLink>
-          <NavLink to="/student/notifications" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <Bell className="nav-icon" /> Notifications
+          <NavLink to="/student/notifications" className={navItemClass}>
+            <Bell className="w-5 h-5" /> Notifications
           </NavLink>
-          <NavLink to="/student/request-tracking" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <Clock className="nav-icon" /> Request Tracking
+          <NavLink to="/student/request-tracking" className={navItemClass}>
+            <Clock className="w-5 h-5" /> Request Tracking
           </NavLink>
         </nav>
 
-        <div className="sidebar-footer">
-          <button className="logout-btn" onClick={handleLogout}>
-            <LogOut className="nav-icon" /> Logout
-          </button>
+        <div className="p-4 border-t border-slate-200">
+          <Button variant="ghost" className="w-full justify-start text-slate-600 hover:text-destructive hover:bg-destructive/10" onClick={handleLogout}>
+            <LogOut className="w-5 h-5 mr-3" /> Logout
+          </Button>
         </div>
       </aside>
 
       {/* Main Content Area */}
-      <div className="main-area">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Top Header */}
-        <header className="top-header">
-          <div className="header-left">
-            {/* Can put breadcrumbs or title here if needed */}
+        <header className="bg-white h-16 border-b border-slate-200 flex items-center justify-between px-6 shrink-0">
+          <div className="flex items-center">
+            {/* Breadcrumbs or Mobile Menu Toggle can go here */}
           </div>
-          <div className="header-right">
-            <div className="notification-bell">
-              <Bell size={20} />
-              <span className="badge">3</span>
-            </div>
-            <div className="user-profile">
-              <div className="avatar">S</div>
-              <div className="user-info">
-                <span className="name">Siva Kumar</span>
-                <span className="roll">Roll No: 23B210AH13</span>
+          <div className="flex items-center gap-6">
+            <button className="relative text-slate-500 hover:text-slate-700 transition-colors">
+              <Bell className="w-5 h-5" />
+              <span className="absolute -top-1 -right-1 bg-destructive text-destructive-foreground text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">3</span>
+            </button>
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">
+                S
+              </div>
+              <div className="hidden sm:block text-sm">
+                <p className="font-semibold text-slate-900 leading-tight">Siva Kumar</p>
+                <p className="text-xs text-slate-500">Roll No: 23B210AH13</p>
               </div>
             </div>
           </div>
         </header>
 
         {/* Page Content */}
-        <main className="page-content">
+        <main className="flex-1 overflow-auto p-6 md:p-8">
           <Outlet />
         </main>
       </div>
