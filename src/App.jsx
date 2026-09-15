@@ -71,7 +71,6 @@ import SecurityDashboard from './pages/SecurityDashboard';
 import SecurityApprovedOutpass from './pages/SecurityApprovedOutpass';
 import SecurityOutpassDocument from './pages/SecurityOutpassDocument';
 import SecurityConfirmExit from './pages/SecurityConfirmExit';
-import SecurityExitSuccess from './pages/SecurityExitSuccess';
 import SecurityOutpassLog from './pages/SecurityOutpassLog';
 import SecurityStudentRecords from './pages/SecurityStudentRecords';
 
@@ -160,7 +159,6 @@ function App() {
           <Route path="approved-outpass" element={<SecurityApprovedOutpass />} />
           <Route path="outpass-document" element={<SecurityOutpassDocument />} />
           <Route path="confirm-exit" element={<SecurityConfirmExit />} />
-          <Route path="exit-success" element={<SecurityExitSuccess />} />
           <Route path="outpass-log" element={<SecurityOutpassLog />} />
           <Route path="student-records" element={<SecurityStudentRecords />} />
         </Route>
