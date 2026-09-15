@@ -1,4 +1,4 @@
-﻿import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import DashboardLayout from './components/DashboardLayout';
 import CTPOLayout from './components/CTPOLayout';
@@ -10,6 +10,7 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminColleges from './pages/AdminColleges';
 import AdminDepartments from './pages/AdminDepartments';
+import AdminBranches from './pages/AdminBranches';
 import AdminFacultyRegistrations from './pages/AdminFacultyRegistrations';
 import AdminHODManagement from './pages/AdminHODManagement';
 import AdminFacultyManagement from './pages/AdminFacultyManagement';
@@ -85,6 +86,7 @@ function App() {
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="colleges" element={<AdminColleges />} />
           <Route path="departments" element={<AdminDepartments />} />
+          <Route path="branches" element={<AdminBranches />} />
           <Route path="faculty-registrations" element={<AdminFacultyRegistrations />} />
           <Route path="hod-management" element={<AdminHODManagement />} />
           <Route path="faculty-management" element={<AdminFacultyManagement />} />
