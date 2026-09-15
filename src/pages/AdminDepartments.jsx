@@ -19,13 +19,15 @@ import {
 } from '../components/ui/table';
 
 const AdminDepartments = () => {
-  const [selectedCollege, setSelectedCollege] = useState('kied');
+  const [selectedCollege, setSelectedCollege] = useState('kiet');
 
   const departmentsData = [
-    { id: 1, code: 'CSE', name: 'Computer Science & Engineering', hod: 'Dr. R. Sharma', faculty: 9, students: 120, status: 'Active' },
-    { id: 2, code: 'AID', name: 'Artificial Intelligence & Data Science', hod: 'Dr. L. Meena', faculty: 6, students: 85, status: 'Active' },
-    { id: 3, code: 'Cyber', name: 'Cyber Security', hod: 'Dr. P. Rao', faculty: 7, students: 72, status: 'Active' },
-    { id: 4, code: 'CAI', name: 'Computer Applications', hod: 'Dr. S. Naik', faculty: 7, students: 65, status: 'Active' },
+    { id: 1, code: 'CSM', name: 'Artificial Intelligence and Machine Learning', hod: 'Dr. R. Sharma', faculty: 9, students: 120, status: 'Active' },
+    { id: 2, code: 'CAI', name: 'Artificial Intelligence', hod: 'Dr. L. Meena', faculty: 6, students: 85, status: 'Active' },
+    { id: 3, code: 'CSD', name: 'Data Science', hod: 'Dr. P. Rao', faculty: 7, students: 72, status: 'Active' },
+    { id: 4, code: 'AID', name: 'Artificial Intelligence and Data Science', hod: 'Dr. S. Naik', faculty: 7, students: 65, status: 'Active' },
+    { id: 5, code: 'CSC', name: 'Cyber security', hod: 'Dr. S. Naik', faculty: 7, students: 65, status: 'Active' },
+
   ];
 
   const branchesData = [

@@ -12,7 +12,8 @@ const RoleSelection = () => {
     { id: 'student', name: 'Student', icon: GraduationCap, description: 'Access dashboard and permissions', color: 'text-blue-500', bg: 'bg-blue-500/10', border: 'border-blue-200' },
     { id: 'ctpo', name: 'CTPO', icon: Users, description: 'Manage student requests', color: 'text-emerald-500', bg: 'bg-emerald-500/10', border: 'border-emerald-200' },
     { id: 'hod', name: 'HOD', icon: Building, description: 'Approve and oversee operations', color: 'text-violet-500', bg: 'bg-violet-500/10', border: 'border-violet-200' },
-    { id: 'admin', name: 'Admin', icon: Shield, description: 'System administration and settings', color: 'text-rose-500', bg: 'bg-rose-500/10', border: 'border-rose-200' }
+    { id: 'admin', name: 'Admin', icon: Shield, description: 'System administration and settings', color: 'text-rose-500', bg: 'bg-rose-500/10', border: 'border-rose-200' },
+    { id: 'security', name: 'Security Guard', icon: Shield, description: 'Verify student outpasses at exit', color: 'text-indigo-500', bg: 'bg-indigo-500/10', border: 'border-indigo-200' }
   ];
 
   const handleContinue = () => {

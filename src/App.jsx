@@ -4,6 +4,7 @@ import DashboardLayout from './components/DashboardLayout';
 import CTPOLayout from './components/CTPOLayout';
 import HODLayout from './components/HODLayout';
 import AdminLayout from './components/AdminLayout';
+import SecurityLayout from './components/SecurityLayout';
 
 // Admin Pages
 import AdminLogin from './pages/AdminLogin';
@@ -64,6 +65,16 @@ import HODReports from './pages/HODReports';
 import HODNotifications from './pages/HODNotifications';
 import HODProfile from './pages/HODProfile';
 
+// Security Dashboard Pages
+import SecurityLogin from './pages/SecurityLogin';
+import SecurityDashboard from './pages/SecurityDashboard';
+import SecurityApprovedOutpass from './pages/SecurityApprovedOutpass';
+import SecurityOutpassDocument from './pages/SecurityOutpassDocument';
+import SecurityConfirmExit from './pages/SecurityConfirmExit';
+import SecurityExitSuccess from './pages/SecurityExitSuccess';
+import SecurityOutpassLog from './pages/SecurityOutpassLog';
+import SecurityStudentRecords from './pages/SecurityStudentRecords';
+
 function App() {
   return (
     <BrowserRouter>
@@ -75,6 +86,7 @@ function App() {
           <Route path="login/ctpo" element={<CTPOLogin />} />
           <Route path="login/hod" element={<HODLogin />} />
           <Route path="login/admin" element={<AdminLogin />} />
+          <Route path="login/security" element={<SecurityLogin />} />
           <Route path="register/student" element={<StudentRegistration />} />
           <Route path="register/ctpo" element={<CTPORegistration />} />
           <Route path="register/hod" element={<HODRegistration />} />
@@ -139,6 +151,18 @@ function App() {
           <Route path="reports" element={<HODReports />} />
           <Route path="notifications" element={<HODNotifications />} />
           <Route path="profile" element={<HODProfile />} />
+        </Route>
+
+        {/* Security Dashboard Routes */}
+        <Route path="/security" element={<SecurityLayout />}>
+          <Route index element={<Navigate to="/security/dashboard" replace />} />
+          <Route path="dashboard" element={<SecurityDashboard />} />
+          <Route path="approved-outpass" element={<SecurityApprovedOutpass />} />
+          <Route path="outpass-document" element={<SecurityOutpassDocument />} />
+          <Route path="confirm-exit" element={<SecurityConfirmExit />} />
+          <Route path="exit-success" element={<SecurityExitSuccess />} />
+          <Route path="outpass-log" element={<SecurityOutpassLog />} />
+          <Route path="student-records" element={<SecurityStudentRecords />} />
         </Route>
       </Routes>
     </BrowserRouter>
